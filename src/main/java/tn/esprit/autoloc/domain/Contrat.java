@@ -5,9 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +23,12 @@ public class Contrat {
     private LocalDate dateSignature;
     private BigDecimal montantTotal;
     private Boolean valide;
+
+    @OneToOne(mappedBy = "contrat")
+    private Reservation reservation;
+
+    @OneToMany(mappedBy = "contrat")
+    private List<Paiement> paiements;
+
 }
+

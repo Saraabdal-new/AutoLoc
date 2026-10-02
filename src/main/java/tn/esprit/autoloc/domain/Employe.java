@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 @Getter
@@ -27,4 +28,7 @@ public class Employe {
 
     @Enumerated(EnumType.STRING)
     private RoleEmploye role;
+
+    @ManyToOne
+    private Agence agence;
 }
